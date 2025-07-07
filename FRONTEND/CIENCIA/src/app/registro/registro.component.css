@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #e8f5e9, #c8e6c9);
+  margin: 0;
+  padding: 0;
+}
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.register-card {
+  background-color: #fff;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(34, 139, 34, 0.15);
+  text-align: center;
+}
+
+.register-card h2 {
+  margin-bottom: 10px;
+  color: #2e7d32;
+}
+
+.register-card p {
+  color: #4caf50;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #a5d6a7;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+.register-form input:focus {
+  border-color: #66bb6a;
+  outline: none;
+}
+
+.register-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #43a047;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-form button:hover {
+  background-color: #388e3c;
+}
+
+.error {
+  color: #d32f2f;
+  margin-top: 10px;
+}
+
+.success {
+  color: #388e3c;
+  margin-top: 10px;
+}
+
+.login-link {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #2e7d32;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
