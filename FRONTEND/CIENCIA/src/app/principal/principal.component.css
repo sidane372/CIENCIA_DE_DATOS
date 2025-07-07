@@ -1,0 +1,225 @@
+:root {
+  --primary: #2e7d32;
+  --primary-light: #4caf50;
+  --primary-dark: #1b5e20;
+  --text: #263238;
+  --light-bg: #f1f8e9;
+  --white: #ffffff;
+  --error: #d32f2f;
+  --border-radius: 12px;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--light-bg);
+  color: var(--text);
+  margin: 0;
+}
+
+.dashboard-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-header {
+  background: var(--primary);
+  padding: 1.2rem 2rem;
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content h1 {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logout-btn {
+  background: white;
+  color: var(--primary);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.6rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background: #c8e6c9;
+}
+
+.main-content {
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.upload-section {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.upload-section h2 {
+  margin-bottom: 1.2rem;
+  color: var(--primary-dark);
+}
+
+.upload-box {
+  border: 2px dashed var(--primary-light);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  background: #f9fbe7;
+  transition: background 0.3s, border 0.3s;
+}
+
+.upload-box:hover,
+.upload-box.drag-over {
+  background: #e8f5e9;
+  border-color: var(--primary);
+}
+
+.upload-box i {
+  font-size: 2.5rem;
+  color: var(--primary);
+}
+
+.file-info {
+  margin-top: 0.8rem;
+  font-weight: bold;
+  color: var(--primary-dark);
+}
+
+.analyze-btn {
+  margin-top: 1.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.analyze-btn:hover {
+  background: var(--primary-dark);
+}
+
+.analyze-btn:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+}
+
+.results-section,
+.history-section {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.result-card {
+  border-left: 8px solid #4caf50;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background: #f9fbe7;
+}
+
+.result-card.disease {
+  border-left-color: var(--error);
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--primary-dark);
+}
+
+.result-details {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.plant-image img {
+  max-width: 200px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.diagnosis-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.progress-bar {
+  background: #c8e6c9;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  height: 10px;
+}
+
+.progress {
+  background: var(--primary);
+  height: 100%;
+  transition: width 0.4s ease-in-out;
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.history-card {
+  background: #f1f8e9;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.history-card:hover {
+  transform: translateY(-4px);
+}
+
+.history-image img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.history-info {
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.disease-name {
+  font-weight: bold;
+  color: var(--primary-dark);
+}
+
+.date {
+  font-size: 0.85rem;
+  color: var(--text);
+}

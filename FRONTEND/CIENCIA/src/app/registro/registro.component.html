@@ -1,0 +1,20 @@
+<div class="register-container">
+    <div class="register-card">
+        <h2>🌱 Crear cuenta</h2>
+        <p>Regístrate para acceder a las herramientas de diagnóstico de plantas.</p>
+
+        <form (ngSubmit)="onRegister()" class="register-form">
+            <input type="text" [(ngModel)]="username" name="username" placeholder="Nombre de usuario" required />
+            <input type="email" [(ngModel)]="email" name="email" placeholder="Correo electrónico" required />
+            <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" required />
+            <button type="submit">Registrarse</button>
+
+            <p class="error" *ngIf="error">{{ error }}</p>
+            <p class="success" *ngIf="success">{{ success }}</p>
+        </form>
+
+        <p class="login-link">¿Ya tienes cuenta?
+            <a routerLink="/login">Inicia sesión</a>
+        </p>
+    </div>
+</div>

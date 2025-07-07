@@ -1,0 +1,76 @@
+<!-- HTML Profesional para Dashboard de PlantGuard -->
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <div class="header-content">
+      <h1><i class="fas fa-leaf"></i> PlantGuard</h1>
+      <button class="logout-btn" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Sección de subida de imagen -->
+    <section class="upload-section">
+      <h2>Detectar enfermedades en plantas</h2>
+      <div class="upload-box" (click)="fileInput.click()" [class.drag-over]="isDragging">
+        <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)" hidden>
+        <i class="fas fa-cloud-upload-alt"></i>
+        <p>Arrastra y suelta una imagen o haz clic para seleccionar</p>
+        <p class="file-info" *ngIf="selectedFile">Archivo seleccionado: {{ selectedFile.name }}</p>
+      </div>
+      <button class="analyze-btn" (click)="analyzePlant()" [disabled]="!selectedFile">
+        <i class="fas fa-search"></i> Analizar Planta
+      </button>
+    </section>
+
+    <!-- Resultados del análisis -->
+    <section class="results-section" *ngIf="analysisResult">
+      <h3>Resultados del análisis</h3>
+      <div class="result-card" [class.disease]="analysisResult.hasDisease">
+        <div class="result-header">
+          <i class="fas" [ngClass]="analysisResult.hasDisease ? 'fa-exclamation-triangle' : 'fa-check-circle'"></i>
+          <h4>{{ analysisResult.hasDisease ? 'Enfermedad detectada' : 'Planta saludable' }}</h4>
+        </div>
+
+        <div class="result-details">
+          <div class="plant-image">
+            <img [src]="previewImage" alt="Planta analizada">
+          </div>
+
+          <div class="diagnosis-info">
+            <p *ngIf="analysisResult.hasDisease">
+              <strong>Enfermedad:</strong> {{ analysisResult.diseaseName }}
+            </p>
+            <p><strong>Confianza:</strong> {{ analysisResult.confidence }}%</p>
+            <div class="progress-bar">
+              <div class="progress" [style.width.%]="analysisResult.confidence"></div>
+            </div>
+            <p *ngIf="analysisResult.hasDisease">
+              <strong>Recomendación:</strong> {{ analysisResult.treatment }}
+            </p>
+            <p *ngIf="!analysisResult.hasDisease">
+              Tu planta parece estar saludable. Continúa con los cuidados habituales.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Historial de análisis -->
+    <section class="history-section" *ngIf="analysisHistory.length > 0">
+      <h3>Historial de análisis</h3>
+      <div class="history-grid">
+        <div class="history-card" *ngFor="let item of analysisHistory">
+          <div class="history-image">
+            <img [src]="item.image" alt="Análisis previo">
+          </div>
+          <div class="history-info">
+            <p class="disease-name">{{ item.hasDisease ? item.diseaseName : 'Saludable' }}</p>
+            <p class="date">{{ item.date | date:'medium' }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
